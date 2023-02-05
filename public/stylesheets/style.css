@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap');
+
+body {
+  
+  font: 14px "Raleway", Helvetica, Arial, sans-serif !important;
+}
+
+h1,h1{
+  font-weight: 900;
+}
+
+h3,h4,h5{
+  font-weight: 700;
+}
+
+p{
+  font-weight: 400;
+}
+
+a {
+  color: #00B7FF;
+}
+
+nav{
+  margin-bottom: 1rem;
+  font-weight: 700;
+  padding: 2rem;
+}
+
+main{
+  padding: 1rem;
+}
