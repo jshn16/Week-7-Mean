@@ -18,12 +18,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 //for using dependencies
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
+// use dotenv to read .env file with config vars
+if(process.env.Node_ENV !='production'){
+
+  require('dotenv').config()
+
+}
+
 const mongoose=require('mongoose');
-mongoose.connect('mongodb+srv://jashan:Jashan5677@cluster0.t2aev6d.mongodb.net/hireme')
+
+mongoose.connect(process.env.CONNECTION_STRING)
 .then((res)=>{
   console.log('Connected To Moongoose')
 }).catch(()=>{
