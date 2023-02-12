@@ -9,34 +9,20 @@ const fs=require('fs');
 
 router.get('/',(req,res)=>{
 
-    const employers=[
-        {
-            "name": "Provix"
-        },
-        {
-            "name": "Element6"
-        },
-        {
-            "name": "Netgain"
-        },
-        {
-            "name": "44 North"
-        }
-    ]
+   
     
-    //get data from json file
-    // fs.readFile("./data/employers.json",'utf8',(error,employers)=>{
-    //     if(error){
-    //         console.log(error);
-    //     }
-    //     else{
-    //         res.render('employers/index',{ title:'Employers',
-    //         Employers:employers
-    //     });
-    //     }
-    // })
-    res.render('employers/index',{ title:'Employers',
-            Employers:employers})
+    // get data from json file
+    fs.readFile("./data/employers.json",'utf8',(error,employers)=>{
+        if(error){
+            console.log(error);
+        }
+        else{
+            res.render('employers/index',{ title:'Employers List',
+            employers:JSON.parse(employers)
+        });
+        }
+    })
+    
 
     
 });
