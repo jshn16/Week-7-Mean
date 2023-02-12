@@ -4,9 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes/index');
-const employers=require('./routes/employers')
-const usersRouter = require('./routes/users');
+const indexRouter = require('./controllers/index');
+const usersRouter = require('./controllers/users');
 
 const app = express();
 
@@ -20,9 +19,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//for using dependencies
+app.use(express.static(path.join(__dirname, 'node_modules')));
+
+const mongoose=require('mongoose');
+mongoose.connect('mongodb+srv://jashan:Jashan5677@cluster0.t2aev6d.mongodb.net/hireme')
+.then((res)=>{
+  console.log('Connected To Moongoose')
+}).catch(()=>{
+  console.log('Connection To Moongoose Failed')
+})
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/employers', employers)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

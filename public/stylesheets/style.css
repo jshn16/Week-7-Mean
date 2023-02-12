@@ -30,3 +30,16 @@ nav{
 main{
   padding: 1rem;
 }
+
+.navbar-dark{
+  background: linear-gradient(
+    #e52d27
+    , 
+    #b31217) !important;
+  padding: 0.5rem 2rem;
+}
+
+.nav-link{
+  font-weight: 400;
+  color: #ffffff !important;
+}

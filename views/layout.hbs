@@ -2,12 +2,11 @@
 <html lang="en">
 
 <head>
-  <title>{{title}}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-  <link rel="stylesheet" href='/stylesheets/style.css' />
-  <!-- bootstrap JS -->
-  <script src="/javascripts/bootstrap.min.js"></script>
+   <title>{{title}}</title>
+  <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/javascripts/jquery.min.js"></script>
 </head>
 
@@ -16,16 +15,18 @@
     <div>
       <!-- sample Navbar: https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp -->
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      
         <!-- Brand -->
         <a class="navbar-brand" href="/">Hire Me!</a>
 
         <!-- Toggler/collapsible Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="/about">About</a>
@@ -41,6 +42,7 @@
             </li>
           </ul>
         </div>
+      </div>
       </nav>
       
     </div>
