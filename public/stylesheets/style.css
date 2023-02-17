@@ -43,3 +43,12 @@ main{
   font-weight: 400;
   color: #ffffff !important;
 }
+
+fieldset {
+  border: none;
+  margin: 5px;
+}
+
+label {
+  width: 130px;
+}
