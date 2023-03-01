@@ -6,6 +6,8 @@ const logger = require('morgan');
 
 const indexRouter = require('./controllers/index');
 const usersRouter = require('./controllers/users');
+
+const auth = require('./controllers/auth')
 // reference our new custom controllers
 const employers = require('./controllers/employers');
 const cities = require('./controllers/cities');
@@ -24,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(express.static(path.join(__dirname, 'node_modules')));
 // use dotenv to read .env file with config vars
 if (process.env.NODE_ENV != 'production') {
@@ -35,18 +37,20 @@ if (process.env.NODE_ENV != 'production') {
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.CONNECTION_STRING)
-.then((res) => {
-  console.log('Connected to MongoDB');
-})
-.catch(() => {
-  console.log('Connection to MongoDB Failed');
-});
+  .then((res) => {
+    console.log('Connected to MongoDB');
+  })
+  .catch(() => {
+    console.log('Connection to MongoDB Failed');
+  });
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 // map all requests at /employers to our own employers.js controller
 app.use('/employers', employers);
 app.use('/cities', cities);
+app.use('/auth', auth);
 
 const hbs = require('hbs');
 hbs.registerHelper('selectOption', (currentValue, selectedValue) => {
@@ -59,12 +63,12 @@ hbs.registerHelper('selectOption', (currentValue, selectedValue) => {
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
