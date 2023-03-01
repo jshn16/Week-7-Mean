@@ -1,9 +1,41 @@
 <h1>Employers</h1>
 <a href="/employers/create" class="btn btn-danger my-2">Create</a>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam nihil nulla accusantium quisquam laudantium totam unde, temporibus aliquam. Placeat, aspernatur fugiat ea quibusdam aliquam quis laborum ipsam iste quo magni?</p>
-<ul>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam nihil nulla accusantium quisquam laudantium
+    totam unde, temporibus aliquam. Placeat, aspernatur fugiat ea quibusdam aliquam quis laborum ipsam iste quo magni?
+</p>
+<table class="table table-stripped table-hover">
+    <thead>
+        <th>name</th>
+        <th>city</th>
+        <th>email</th>
+        <th>employees</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        {{#each employers}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.city}}</td>
+            <td>
+                {{#if this.contactEmail}}
+                <a href="mailto:{{this.contactEmail}}">
+                    {{this.contactEmail}}
+                </a>
+                {{/if}}
+            </td>
+            <td>{{this.employee}}</td>
+            <td >
+                <a href="/employers/edit/{{this._id}}" title="edit">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+                
+
+                <a href="/employers/delete/{{this._id}}" onclick="return confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+                
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
     <h2>{{title}}</h2>
-    {{#each employers}}
-        <li>{{this.name}}</li>
-    {{/each}}
-</ul>
+
+</table>

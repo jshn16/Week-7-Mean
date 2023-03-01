@@ -1,19 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap');
 
 body {
-  
+
   font: 14px "Raleway", Helvetica, Arial, sans-serif !important;
 }
 
-h1,h1{
+h1,
+h1 {
   font-weight: 900;
 }
 
-h3,h4,h5{
+h3,
+h4,
+h5 {
   font-weight: 700;
 }
 
-p{
+p {
   font-weight: 400;
 }
 
@@ -21,25 +24,30 @@ a {
   color: #00B7FF;
 }
 
-nav{
+nav {
   margin-bottom: 1rem;
   font-weight: 700;
   padding: 2rem;
 }
 
-main{
+main {
   padding: 1rem;
 }
 
-.navbar-dark{
-  background: linear-gradient(
-    #e52d27
-    , 
-    #b31217) !important;
+.navbar-dark {
+  background: linear-gradient(#e52d27,
+      #b31217) !important;
   padding: 0.5rem 2rem;
 }
 
-.nav-link{
+i {
+  color:
+    #e52d27;
+    cursor: pointer;
+    margin: 0 0.5rem;
+}
+
+.nav-link {
   font-weight: 400;
   color: #ffffff !important;
 }
@@ -51,4 +59,8 @@ fieldset {
 
 label {
   width: 130px;
+}
+
+th{
+  text-transform: capitalize;
 }
